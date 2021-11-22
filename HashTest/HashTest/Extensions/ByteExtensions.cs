@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,19 @@ namespace HashTest.Extensions
             // comparazione tramite equità strutturale
             return StructuralComparisons.
                 StructuralEqualityComparer.Equals(source, compareWith);
+        }
+
+        public static string ToMD5(this byte[] source)
+        {
+            if (source == null || !source.Any())
+            {
+                return null;
+            }
+
+            using (var md5 = MD5.Create())
+            {
+                return BitConverter.ToString(md5.ComputeHash(source)).Replace("-","");
+            }
         }
     }
 }

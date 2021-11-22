@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +33,19 @@ namespace HashTest.Extensions
             {
                 return null;
             }
+        }
+
+
+        // solo scopo di demo
+        public static string Repeat(this string source, int iterations)
+        {
+            StringBuilder builder = new StringBuilder();
+            for(int i = 0; i < iterations; i++)
+            {
+                builder.Append(source);
+            }
+
+            return builder.ToString();
         }
     }
 }

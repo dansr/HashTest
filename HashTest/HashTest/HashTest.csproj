@@ -82,6 +82,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="Data\DsDati.cs">
+      <DependentUpon>DsDati.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DsDati.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsDati.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\BoolExtensions.cs" />
     <Compile Include="Extensions\ByteExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -94,6 +102,12 @@
     <Compile Include="Services\HashService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmStep2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStep2.Designer.cs">
+      <DependentUpon>frmStep2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmStep1.resx">
       <DependentUpon>frmStep1.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +120,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmStep2.resx">
+      <DependentUpon>frmStep2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Data\DsDati.xsc">
+      <DependentUpon>DsDati.xsd</DependentUpon>
+    </None>
+    <None Include="Data\DsDati.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsDati.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\DsDati.xss">
+      <DependentUpon>DsDati.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,8 +160,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
